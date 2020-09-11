@@ -6,6 +6,7 @@ import Link from "next/link";
 const name = "Your Name";
 export const siteTitle = "Next.js Sample Website";
 
+// <Layout home>とpropsが渡された場合、JSXを分岐
 export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
