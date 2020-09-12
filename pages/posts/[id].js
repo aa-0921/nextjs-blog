@@ -23,7 +23,7 @@ export default function Post({ postData }) {
 }
 //①動的ルートでパス一覧（どんなページを表示する可能性があるのか）を取得
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = await getAllPostIds();
   return {
     paths,
     // こちらにfalseを設定することで、存在しないページに遷移しようとしたときには404ページを返す。（trueにすると自分でページを用意したりできる）
