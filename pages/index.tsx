@@ -6,9 +6,12 @@ import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 
+// 型定義のインポート
+import { GetStaticProps } from "next";
+
 //サーバーサイドレンダリングでも表示可能
 // export async function getServerSideProps(context) {
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   //dataでソートされた投稿データ
   const allPostsData = getSortedPostsData();
   console.log("allPostsData", allPostsData);
@@ -17,9 +20,17 @@ export async function getStaticProps() {
       allPostsData,
     },
   };
-}
+};
 
-export default function Home({ allPostsData }) {
+// 下のHomefunctionのpropsの型定義（allPostsDataの中にid等のキーが入っている）
+type Props = {
+  allPostsData: {
+    id: string;
+    title: string;
+    date: string;
+  }[];
+};
+export default function Home({ allPostsData }: Props) {
   // console.log(allPostsData);
   return (
     <Layout home>
