@@ -37,7 +37,7 @@ export async function getStaticProps({ params }) {
   // 呼び出している、getPostDataメソッドがasync/awaitなので、awaitをつける必要がある。
   // キャッチオールルート：動的ルートは...、括弧内に3つのドットを追加することにより、すべてのパスをキャッチするように拡張できる。
   // http://localhost:3000/posts/Next.js/で表示成功
-  const postData = await getPostData(params.id.join("/"));
+  const postData = await getPostData(params.id);
   return {
     // 必ずpropsを返す必要がある。
     props: {
