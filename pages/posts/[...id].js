@@ -35,7 +35,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // libディレクトリ内のgetPostDataメソッドでtitle,dataを取得
   // 呼び出している、getPostDataメソッドがasync/awaitなので、awaitをつける必要がある。
-  // 動的ルートは...、括弧内に3つのドットを追加することにより、すべてのパスをキャッチするように拡張できる。
+  // キャッチオールルート：動的ルートは...、括弧内に3つのドットを追加することにより、すべてのパスをキャッチするように拡張できる。
   // http://localhost:3000/posts/Next.js/で表示成功
   const postData = await getPostData(params.id.join("/"));
   return {
